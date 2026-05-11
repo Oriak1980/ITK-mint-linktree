@@ -1,4 +1,4 @@
-Ayudame hacer  responsive con flex /* RESET */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -23,21 +23,18 @@ body {
 .container {
     width: 100%;
     max-width: 420px;
-    z-index: 2;
 }
 
 /* PROFILE */
 .profile {
     text-align: center;
     margin-bottom: 30px;
-    z-index: 2;
 }
 
 .profile img {
     width: 200px;
     border-radius: 20px;
     margin-bottom: 10px;
-    z-index: 2;
 }
 
 .profile h2 {
@@ -45,13 +42,11 @@ body {
     margin-bottom: 5px;
     font-family: "Space Grotesk", sans-serif;
     font-weight: 550;
-    z-index: 2;
 }
 
 .profile p {
     color: #b7b1b1;
     font-family: "Plus Jakarta Sans", sans-serif;
-    z-index: 2;
 }
 
 /* LINKS */
@@ -59,7 +54,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    z-index: 2;
 }
 
 /* CARD BASE */
@@ -70,7 +64,7 @@ body {
     color: white;
     transition: 0.3s;
     backdrop-filter: blur(10px);
-    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card h2 {
@@ -84,7 +78,6 @@ body {
     font-size: 14px;
     color: #b7b1b1;
     font-family: "Plus Jakarta Sans", sans-serif;
-    z-index: 2;
 }
 
 /* HOVER */
@@ -158,7 +151,11 @@ body {
     height: 100%;
     overflow: hidden;
     pointer-events: none;
-    z-index: 0;
+    
+    inset: 0;
+    z-index: -1; 
+    pointer-events: none;
+
 }
 
 /* ESTILO BASE DE CARTA */
@@ -166,7 +163,6 @@ body {
     position: absolute;
     width: 300px;
     animation: float 8s ease-in-out infinite;
-    z-index: 0;
 }
 
 /* POSICIONES INDIVIDUALES */
@@ -211,17 +207,14 @@ body {
 @keyframes float {
     0% {
         transform: translateY(0px) rotate(var(--rotate, 0deg));
-        z-index: 1;
     }
 
     50% {
         transform: translateY(-20px) rotate(var(--rotate, 0deg));
-        z-index: 1;
     }
 
     100% {
         transform: translateY(0px) rotate(var(--rotate, 0deg));
-        z-index: 1;
     }
 }
 
@@ -242,4 +235,76 @@ body {
 .store-link img:hover {
     transform: scale(1.06);
     box-shadow: 0 0 30px rgba(247, 206, 22, 0.4);
+}
+
+@media (max-width: 480px) {
+
+
+    .card-content {
+        flex-direction: row;
+    }
+
+    .card img {
+        width: 60px; /* más compacto */
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+}
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .container {
+        max-width: 520px;
+    }
+
+    .profile img {
+        width: 170px;
+    }
+
+    .card img {
+        width: 80px;
+    }
+
+}
+
+@media (min-width: 769px) {
+
+    body {
+        padding: 50px;
+    }
+
+    .container {
+        max-width: 480px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .card h2 {
+        font-size: 26px;
+    }
+
+    .card img {
+        width: 100px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 520px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
 }
